@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sell Your Course - MUFT</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100">
+
+    <!-- Header -->
+    <header class="bg-white shadow">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="text-xl font-bold text-gray-900">ALFA PROJECT</div>
+            <nav>
+                <ul class="flex space-x-6">
+                    <li><a href="index.html" class="text-gray-800">Home</a></li>
+                    <li><a href="contact.html" class="text-gray-800">Contact</a></li>
+                    <li><a href="#" class="text-gray-800">Success Stories</a></li>
+                </ul>
+            </nav>
+            <div class="flex space-x-4">
+                <input type="text" placeholder="Search Courses" class="border rounded px-4 py-2">
+                <button class="bg-blue-600 text-white px-4 py-2 rounded">Search</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-6 py-8">
+        <div class="bg-gradient-to-r from-purple-700 to-blue-500 text-white p-8 rounded-lg mb-8">
+            <h1 class="text-3xl font-bold">Sell Us Your Course</h1>
+            <p class="mt-2">We are always looking for more courses to offer for free. Below is a list of courses we are actively looking for, but you may also suggest a new course from yourself. All courses will need to be up to date and recorded in Urdu.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <!-- Courses We Have Already -->
+            <div class="bg-gray-200 p-6 rounded-lg shadow">
+                <h2 class="text-xl font-bold mb-4">Courses We Have Already:</h2>
+                <ul class="list-disc list-inside text-gray-800">
+                    <li>Accounting Full Course in Urdu & Hindi</li>
+                    <li>Adobe Illustrator Course for Graphic Designers</li>
+                    <li>Adobe Photoshop Course for Graphic Designers</li>
+                    <li>Adobe Photoshop Crash Course 30min</li>
+                    <li>After Effects Course</li>
+                    <li>Amazon Virtual Assistant</li>
+                    <li>AutoCAD 3D Course for Engineers</li>
+                    <li>Autodesk Fusion 360 Course for 3D Designers</li>
+                    <li>Blender 3D Course for Engineers</li>
+                    <li>C++ Programming for Software Engineering</li>
+                    <li>CANVA Course</li>
+                    <li>Capcut Course for Video Editors</li>
+                    <li>Complete SEO Course</li>
+                    <li>COREL Draw Course for Graphic Designers</li>
+                    <li>Cyber Security Complete Course</li>
+                    <li>Digital Marketing Course - Facebook Ads</li>
+                    <li>Digital Marketing Course - Google Ads</li>
+                    <li>ETSY Course</li>
+                    <li>Game Development Course (Unity 3D)</li>
+                    <li>HTML & CSS Full Course</li>
+                    <li>JavaScript Advance Course</li>
+                    <li>Maya 3D Course</li>
+                    <li>MERN Stack Course for Web Development</li>
+                    <li>Pro Video Editing on Mobile Phone using VN Editor</li>
+                    <li>Python Advance Programming Course</li>
+                    <li>Shopify Course</li>
+                    <li>Social Media Management Course</li>
+                    <li>Video Editing Course - Adobe Premiere Pro</li>
+                </ul>
+            </div>
+
+            <!-- Courses We Need -->
+            <div class="bg-gray-200 p-6 rounded-lg shadow">
+                <h2 class="text-xl font-bold mb-4">Courses We Need:</h2>
+                <ul class="list-disc list-inside text-gray-800">
+                    <li>Human Resource Management</li>
+                </ul>
+            </div>
+
+            <!-- Get in Touch Form -->
+            <div class="bg-gray-200 p-6 rounded-lg shadow">
+                <h2 class="text-xl font-bold mb-4">Get in touch:</h2>
+                <form>
+                    <div class="mb-4">
+                        <label for="name" class="block text-gray-700">Name:</label>
+                        <input type="text" id="name" class="border rounded w-full px-4 py-2">
+                    </div>
+                    <div class="mb-4">
+                        <label for="email" class="block text-gray-700">Email:</label>
+                        <input type="email" id="email" class="border rounded w-full px-4 py-2">
+                    </div>
+                    <div class="mb-4">
+                        <label for="phone" class="block text-gray-700">Phone:</label>
+                        <input type="text" id="phone" class="border rounded w-full px-4 py-2">
+                    </div>
+                    <div class="mb-4">
+                        <label for="course-price" class="block text-gray-700">Course Price:</label>
+                        <input type="text" id="course-price" class="border rounded w-full px-4 py-2">
+                    </div>
+                    <div class="mb-4">
+                        <label for="course-topic" class="block text-gray-700">Course Topic:</label>
+                        <input type="text" id="course-topic" class="border rounded w-full px-4 py-2">
+                    </div>
+                    <div class="mb-4">
+                        <label for="course-duration" class="block text-gray-700">Estimated Course Duration (hrs):</label>
+                        <input type="text" id="course-duration" class="border rounded w-full px-4 py-2">
+                    </div>
+                    <div class="mb-4">
+                        <label for="course-outline" class="block text-gray-700">Attach Course Outline (.doc, .docx, or .pdf) & size must be less than 10MB:</label>
+                        <input type="file" id="course-outline" class="border rounded w-full px-4 py-2">
+                    </div>
+                    <div class="mb-4">
+                        <label for="course-url" class="block text-gray-700">If course is already written then provide link of your course:</label>
+                        <input type="text" id="course-url" class="border rounded w-full px-4 py-2">
+                    </div>
+                    <div class="mb-4">
+                        <label for="message" class="block text-gray-700">What makes you an expert on this subject? + any other message you have for us:</label>
+                        <textarea id="message" class="border rounded w-full px-4 py-2"></textarea>
+                    </div>
+                    <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded">Submit</button>
+                </form>
+            </div>
+        </div>
+    </main>
+</body>
+</html>
