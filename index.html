@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MU PROVIDING FREE COURSES ALL OVER THE WORLD</title>
+    <title> ALFA PROJECTS </title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         /* Custom CSS for responsive navigation */
@@ -16,6 +16,9 @@
             }
         }
         .mobile-search {
+            display: none;
+        }
+        .hidden {
             display: none;
         }
     </style>
@@ -44,14 +47,13 @@
             </div>
             <!-- Search bar for desktop -->
             <div class="hidden md:flex space-x-4">
-                <input type="text" placeholder="Search Courses" class="border rounded px-4 py-2">
-                <button class="bg-blue-600 text-white px-4 py-2 rounded">Search</button>
+                <input type="text" id="searchInputDesktop" placeholder="Search Courses" class="border rounded px-4 py-2">
+                <button onclick="searchCourses()" class="bg-blue-600 text-white px-4 py-2 rounded">Search</button>
             </div>
         </div>
         <!-- Mobile navigation menu -->
         <div id="mobile-menu" class="md:hidden hidden bg-white">
             <div class="flex justify-between items-center px-6 py-4">
-                <!-- <div class="text-xl font-bold text-gray-900">ALFA PROJECT</div> -->
                 <button id="closeMobileMenu" class="text-gray-800 focus:outline-none">
                     <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
@@ -66,20 +68,24 @@
             </ul>
             <!-- Search bar for mobile -->
             <div class="flex md:hidden mobile-search space-x-4 mt-4 px-4">
-                <input type="text" placeholder="Search Courses" class="border rounded px-4 py-2 flex-1">
-                <button class="bg-blue-600 text-white px-4 py-2 rounded">Search</button>
+                <input type="text" id="searchInputMobile" placeholder="Search Courses" class="border rounded px-4 py-2 flex-1">
+                <button onclick="searchCourses()" class="bg-blue-600 text-white px-4 py-2 rounded">Search</button>
             </div>
         </div>
     </header>
 
     <!-- Main Content -->
     <main class="container mx-auto px-6 py-8">
-        <div class="mb-6 text-lg font-semibold text-gray-800">Explore from 2+ Courses</div>
+
+        <!-- Search Results Section -->
+        <div id="searchResults" class="mt-8 hidden"></div>
+
+        <div id="courseList" class="mb-6 text-lg font-semibold text-gray-800">Explore from 2+ Courses</div>
 
         <!-- Course cards -->
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div id="courses" class="grid grid-cols-1 md:grid-cols-3 gap-6">
             <!-- Python Course Card -->
-            <div class="bg-white shadow rounded-lg p-6">
+            <div class="bg-white shadow rounded-lg p-6" data-title="Python Advance Programming Course" data-link="https://youtu.be/XxbDRKzZWb8?si=Hepy_4JhOc7emiZH">
                 <img src="https://muft.pk/images/courses/python-thumbnail-64f855552e24a812882309.jpg" alt="Python Course" class="w-full h-48 object-cover rounded-t-lg">
                 <div class="p-4">
                     <h3 class="text-lg font-bold text-gray-800">Python Advance Programming Course</h3>
@@ -90,8 +96,8 @@
                 </div>
             </div>
 
-            <!-- Javascript Course Card -->
-            <div class="bg-white shadow rounded-lg p-6">
+            <!-- JavaScript Course Card -->
+            <div class="bg-white shadow rounded-lg p-6" data-title="JavaScript Advance Programming Course" data-link="https://youtu.be/2FAflacwe6M?si=X0b2TJx2PS2TMfGt">
                 <img src="https://muft.pk/images/courses/javascript-course-for-beginners-programmers-by-azadchaiwala-64f855ad60fe3393101851.jpg" alt="JavaScript Course" class="w-full h-48 object-cover rounded-t-lg">
                 <div class="p-4">
                     <h3 class="text-lg font-bold text-gray-800">JavaScript Advance Programming Course</h3>
@@ -102,24 +108,23 @@
                 </div>
             </div>
 
-
-            <div class="bg-white shadow rounded-lg p-6">
-                <img src="https://preview.redd.it/get-dickie-bush-nicolas-cole-full-stack-writer-2024-v0-ktvxb61ezlfc1.png?width=1151&format=png&auto=webp&s=62eb4df03454944e7b0d66c0e7ddabdea7b3d5c5" alt="JavaScript Course" class="w-full h-48 object-cover rounded-t-lg">
+            <!-- Full Stack Writer Course Card -->
+            <div class="bg-white shadow rounded-lg p-6" data-title="Full Stack Writer Course 2024" data-link="https://drive.google.com/drive/folders/1XqRgw7dxyR6agJARWN1y4QxQtylgt2Sd?usp=sharing">
+                <img src="https://preview.redd.it/get-dickie-bush-nicolas-cole-full-stack-writer-2024-v0-ktvxb61ezlfc1.png?width=1151&format=png&auto=webp&s=62eb4df03454944e7b0d66c0e7ddabdea7b3d5c5" alt="Full Stack Writer Course" class="w-full h-48 object-cover rounded-t-lg">
                 <div class="p-4">
                     <h3 class="text-lg font-bold text-gray-800">Full Stack Writer Course 2024 Mentors: Dickie Bush & Nicolas Cole</h3>
-                    <p class="text-gray-600 mt-2">Welcome to the Full Stack Writeing course 2024! In this comprehensive and engaging course, we will dive into the world of Writeing...</p>
+                    <p class="text-gray-600 mt-2">Welcome to the Full Stack Writing course 2024! In this comprehensive and engaging course, we will dive into the world of Writing...</p>
                     <a href="https://drive.google.com/drive/folders/1XqRgw7dxyR6agJARWN1y4QxQtylgt2Sd?usp=sharing">
                         <button class="bg-red-600 text-white mt-4 py-2 px-4 rounded">Start Learning</button>
                     </a>
                 </div>
             </div>
 
-
-
+            
         </div>
     </main>
 
-    <!-- JavaScript for hamburger menu and back to home link -->
+    <!-- JavaScript for hamburger menu and search functionality -->
     <script>
         // Toggle mobile menu
         document.getElementById('hamburger').addEventListener('click', function() {
@@ -133,16 +138,53 @@
 
         // Back to home functionality without refreshing
         document.addEventListener('DOMContentLoaded', function() {
-            const homeLinks = document.querySelectorAll('a[href="#"]');
-            homeLinks.forEach(link => {
+            var homeLinks = document.querySelectorAll('a[href="#"]');
+            homeLinks.forEach(function(link) {
                 link.addEventListener('click', function(event) {
                     event.preventDefault();
                     window.scrollTo({ top: 0, behavior: 'smooth' });
                     // Close mobile menu if open
                     document.getElementById('mobile-menu').classList.add('hidden');
+                    // Show courses list and hide search results
+                    document.getElementById('courseList').classList.remove('hidden');
+                    document.getElementById('courses').classList.remove('hidden');
+                    document.getElementById('searchResults').classList.add('hidden');
                 });
             });
         });
+
+        // Search functionality
+        function searchCourses() {
+            var searchInputDesktop = document.getElementById('searchInputDesktop');
+            var searchInputMobile = document.getElementById('searchInputMobile');
+            var query = searchInputDesktop ? searchInputDesktop.value : searchInputMobile.value;
+            var searchResults = document.getElementById('searchResults');
+            var courses = document.querySelectorAll('[data-title]');
+
+            if (query.trim() === "") {
+                searchResults.innerHTML = "";
+                return;
+            }
+
+            var filteredCourses = Array.from(courses).filter(function(course) {
+                return course.dataset.title.toLowerCase().includes(query.toLowerCase());
+            });
+
+            var resultsHTML = "<h3 class='text-lg font-bold text-gray-800'>Search Related Courses</h3>";
+            filteredCourses.forEach(function(course) {
+                resultsHTML += "<div class='mt-4 p-4 bg-white shadow rounded-lg'>" +
+                                "<h4 class='text-lg font-semibold text-gray-900'>" + course.dataset.title + "</h4>" +
+                                "<a href='" + course.dataset.link + "' class='text-blue-600'>Start Learning</a>" +
+                               "</div>";
+            });
+
+            searchResults.innerHTML = resultsHTML;
+            // Show search results and hide courses list
+            document.getElementById('courseList').classList.add('hidden');
+            document.getElementById('courses').classList.add('hidden');
+            searchResults.classList.remove('hidden');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
     </script>
 </body>
 </html>
