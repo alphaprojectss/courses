@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Page with TailwindCSS</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body { font-family: Arial, sans-serif; }
+        .hidden { display: none; }
+    </style>
+</head>
+<body class="bg-gray-100 flex flex-col items-center min-h-screen p-4">
+
+    <div class="flex flex-col md:flex-row w-full max-w-5xl bg-white rounded-lg shadow-lg overflow-hidden">
+        
+        <!-- Sidebar -->
+        <div class="w-full md:w-1/4 bg-gray-800 text-white p-4">
+            <div class="space-y-4">
+                <button onclick="showContent('nordvpn')" class="block w-full text-left py-2 px-4 rounded hover:bg-gray-700">NORD VPNS LOGS</button>
+                <button onclick="showContent('edu')" class="block w-full text-left py-2 px-4 rounded hover:bg-gray-700">EDU MAILS</button>
+                <button onclick="showContent('canva')" class="block w-full text-left py-2 px-4 rounded hover:bg-gray-700">CANVA LOGS</button>
+                <button onclick="showContent('apk')" class="block w-full text-left py-2 px-4 rounded hover:bg-gray-700">PRE APKS</button>
+            </div>
+        </div>
+        
+        <!-- Main Content -->
+        <div class="w-full md:w-3/4 p-4">
+            <div id="nordvpn" class="content">
+                <h2 class="text-xl font-bold mb-4">NORD VPNS LOGINS FREE</h2>
+                <p class="mb-2">Gmail: joleli3737@cutxsew.com<br>Password: https://LearnWithFaizan.net</p>
+<p class="mb-2">Gmail: hifip67506@dcbin.com<br>Password: https://LearnWithFaizan.net</p>
+<p class="mb-2">Gmail: yimigo5803@cutxsew.com<br>Password: https://LearnWithFaizan.net</p>
+<p class="mb-2">Gmail: giroyaf883@cutxsew.com<br>Password: https://LearnWithFaizan.net</p>
+<p class="mb-2">Gmail: salolo9155@cutxsew.com<br>Password: https://LearnWithFaizan.net</p>
+<p class="mb-2">Gmail: gakeve3876@devncie.com<br>Password: https://LearnWithFaizan.net</p>
+<p class="mb-2">Gmail: sohaf50108@joeroc.com<br>Password: https://LearnWithFaizan.net</p>
+<p class="mb-2">Gmail: ficeba1526@dcbin.com<br>Password: https://LearnWithFaizan.net</p>
+<p class="mb-2">Gmail: gehifir948@dcbin.com<br>Password: https://LearnWithFaizan.net</p>
+<p class="mb-2">Gmail: wasab76591@cutxsew.com<br>Password: https://LearnWithFaizan.net</p>
+
+            </div>
+            <div id="edu" class="content hidden">
+                <h2 class="text-xl font-bold mb-4">EDU MAILS</h2>
+                <p class="mb-2">Example EDU content here...</p>
+            </div>
+            <div id="canva" class="content hidden">
+                <h2 class="text-xl font-bold mb-4">CANVA LOGS</h2>
+                <p class="mb-2">Example Canva content here...</p>
+            </div>
+            <div id="apk" class="content hidden">
+                <h2 class="text-xl font-bold mb-4">PRE APKS</h2>
+                <p class="mb-2">Example APK content here...</p>
+            </div>
+        </div>
+        
+    </div>
+
+    <script>
+        function showContent(id) {
+            document.querySelectorAll('.content').forEach(element => {
+                element.classList.add('hidden');
+            });
+            document.getElementById(id).classList.remove('hidden');
+        }
+    </script>
+</body>
+</html>
