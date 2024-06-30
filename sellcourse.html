@@ -3,7 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sell Your Course - MUFT</title>
+    <title>Sell Your Courses - Alfa Projects</title>
+    <link rel="icon" type="image/x-icon" href="favicon-32x32.png">
+
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
          /* Custom CSS for responsive navigation */
@@ -28,7 +30,7 @@
             <div class="text-xl font-bold text-gray-900">ALFA PROJECT</div>
             <nav class="hidden md:flex">
                 <ul class="flex space-x-6">
-                    <li><a href="#" class="text-gray-800">Home</a></li>
+                    <li><a href="index.html" class="text-gray-800">Home</a></li>
                     <li><a href="contact.html" class="text-gray-800">Contact</a></li>
                     <li><a href="sellcourse.html" class="text-gray-800">Sell Course</a></li>
                     <li><a href="#" class="text-gray-800">Success Stories</a></li>
@@ -59,7 +61,7 @@
                 </button>
             </div>
             <ul class="flex flex-col space-y-4 px-4">
-                <li><a href="#" class="text-gray-800 block px-4 py-2">Home</a></li>
+                <li><a href="index.html" class="text-gray-800 block px-4 py-2">Home</a></li>
                 <li><a href="contact.html" class="text-gray-800 block px-4 py-2">Contact</a></li>
                 <li><a href="sellcourse.html" class="text-gray-800 block px-4 py-2">Sell Course</a></li>
                 <li><a href="#" class="text-gray-800 block px-4 py-2">Success Stories</a></li>
@@ -77,7 +79,7 @@
     <main class="container mx-auto px-6 py-8">
         <div class="bg-gradient-to-r from-purple-700 to-blue-500 text-white p-8 rounded-lg mb-8">
             <h1 class="text-3xl font-bold">Sell Us Your Course</h1>
-            <p class="mt-2">We are always looking for more courses to offer for free. Below is a list of courses we are actively looking for, but you may also suggest a new course from yourself. All courses will need to be up to date and recorded in Urdu.</p>
+            <p class="mt-2">We are always looking for more courses to offer for free. Below is a list of courses we are actively looking for, but you may also suggest a new course from yourself. All courses will need to be up to date and recorded in Urdu. (list will be update soon)</p>
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -127,44 +129,46 @@
             <!-- Get in Touch Form -->
             <div class="bg-gray-200 p-6 rounded-lg shadow">
                 <h2 class="text-xl font-bold mb-4">Get in touch:</h2>
-                <form>
+                <form action="https://api.web3forms.com/submit" method="POST">
+                    <input type="hidden" name="access_key" value="1ae93cce-be8e-44e1-8177-0670878555d6">
+
                     <div class="mb-4">
-                        <label for="name" class="block text-gray-700">Name:</label>
-                        <input type="text" id="name" class="border rounded w-full px-4 py-2">
+                        <label for="name"  class="block text-gray-700">Name:</label>
+                        <input type="text" name="Name" id="name" class="border rounded w-full px-4 py-2">
                     </div>
                     <div class="mb-4">
                         <label for="email" class="block text-gray-700">Email:</label>
-                        <input type="email" id="email" class="border rounded w-full px-4 py-2">
+                        <input type="email" name="Email" id="email" class="border rounded w-full px-4 py-2">
                     </div>
                     <div class="mb-4">
                         <label for="phone" class="block text-gray-700">Phone:</label>
-                        <input type="text" id="phone" class="border rounded w-full px-4 py-2">
+                        <input type="text" name="Phone" id="phone" class="border rounded w-full px-4 py-2">
                     </div>
                     <div class="mb-4">
                         <label for="course-price" class="block text-gray-700">Course Price:</label>
-                        <input type="text" id="course-price" class="border rounded w-full px-4 py-2">
+                        <input type="text" name="Course price:" id="course-price" class="border rounded w-full px-4 py-2">
                     </div>
                     <div class="mb-4">
                         <label for="course-topic" class="block text-gray-700">Course Topic:</label>
-                        <input type="text" id="course-topic" class="border rounded w-full px-4 py-2">
+                        <input type="text" name="Course topic" id="course-topic" class="border rounded w-full px-4 py-2">
                     </div>
                     <div class="mb-4">
                         <label for="course-duration" class="block text-gray-700">Estimated Course Duration (hrs):</label>
-                        <input type="text" id="course-duration" class="border rounded w-full px-4 py-2">
+                        <input type="text" name="Estimated course duration (hrs)" id="course-duration" class="border rounded w-full px-4 py-2">
                     </div>
                     <div class="mb-4">
                         <label for="course-outline" class="block text-gray-700">Attach Course Outline (.doc, .docx, or .pdf) & size must be less than 10MB:</label>
-                        <input type="file" id="course-outline" class="border rounded w-full px-4 py-2">
+                        <input type="file" name="Attach Course Outline (.doc, .docx, or .pdf) & size must be less than 10MB:" id="course-outline" class="border rounded w-full px-4 py-2">
                     </div>
                     <div class="mb-4">
                         <label for="course-url" class="block text-gray-700">If course is already written then provide link of your course:</label>
-                        <input type="text" id="course-url" class="border rounded w-full px-4 py-2">
+                        <input type="text" name="If course is already written then provide link of your course:" id="course-url" class="border rounded w-full px-4 py-2">
                     </div>
                     <div class="mb-4">
                         <label for="message" class="block text-gray-700">What makes you an expert on this subject? + any other message you have for us:</label>
-                        <textarea id="message" class="border rounded w-full px-4 py-2"></textarea>
+                        <textarea id="message" name="What makes you an expert on this subject? + any other message you have for us:" class="border rounded w-full px-4 py-2"></textarea>
                     </div>
-                    <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded">Submit</button>
+                    <button type="submit"  class="bg-blue-600 text-white px-4 py-2 rounded">Submit</button>
                 </form>
             </div>
         </div>
