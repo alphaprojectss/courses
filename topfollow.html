@@ -12,22 +12,43 @@
 <body class="bg-white flex flex-col items-center justify-center min-h-screen p-4">
     <h1 class="text-2xl font-bold mb-4">top follow download link</h1>
     <img src="https://miro.medium.com/v2/resize:fit:1168/1*95W3CmAaAmeG5e0cvN_IoQ.png" alt="Top Follow" class="w-64 h-64 object-cover mb-4">
-    <p class="font-bold mb-4">USE FAKE ACCOUNT ONLY USE THIS REFFREAL CODE TO EARN 200+ COINS  " KRFFRFYYBC "</p>
-    <button class="bg-green-600 text-white py-2 px-4 rounded-lg mb-4"> <a href="https://www.topfollowapk.com/download/topfollow-v4-5-6/"> CLICK TO DOWNLOAD </a></button>
+    <p class="font-bold mb-4">USE FAKE ACCOUNT ONLY </p>
+    <button class="bg-green-600 text-white py-2 px-4 rounded-lg mb-4">
+        <a href="https://www.topfollowapk.com/download/topfollow-v4-5-6/"> CLICK TO DOWNLOAD </a>
+    </button>
 
     <!-- Form for referral code -->
     <form action="https://api.web3forms.com/submit" method="POST" id="referralForm" class="w-full max-w-sm">
         <div class="mb-4">
-
             <label for="referralCode" class="block text-gray-700 text-sm font-bold mb-2">Enter your referral code:</label>
-
             <input type="text" id="referralCode" name="referralCode" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required>
             <input type="hidden" name="access_key" value="1ae93cce-be8e-44e1-8177-0670878555d6">
-
         </div>
         <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Submit</button>
     </form>
 
-   
+    <!-- Button to show referral codes -->
+    <button id="showCodesBtn" class="bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded mt-4">See Referral Codes</button>
+
+    <!-- Hidden div to display referral codes -->
+    <div id="referralCodes" class="hidden mt-4 p-4 border rounded bg-gray-100 w-full max-w-sm">
+        <p class="font-bold">Referral Codes:</p>
+        <ul class="list-disc list-inside">
+            <li>KRFFRFYYBC</li>
+            <li>UCNASJBFKY</li>
+            <li>TNMVEEKZWC</li>
+        </ul>
+    </div>
+
+    <script>
+        document.getElementById('showCodesBtn').addEventListener('click', function() {
+            const referralCodesDiv = document.getElementById('referralCodes');
+            if (referralCodesDiv.classList.contains('hidden')) {
+                referralCodesDiv.classList.remove('hidden');
+            } else {
+                referralCodesDiv.classList.add('hidden');
+            }
+        });
+    </script>
 </body>
 </html>
