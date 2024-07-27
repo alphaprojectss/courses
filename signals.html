@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TECHIFY</title>
+    <title>TECHIFY CRYPTO SIGNALS</title>
     <link rel="icon" type="image/x-icon" href="favicon-32x32.png">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
@@ -31,7 +31,7 @@
     <!-- Header -->
     <header class="bg-white shadow">
         <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <div class="text-xl font-bold text-gray-900"> <a href="index.html">TECHIFY </a> </div>
+            <div class="text-xl font-bold text-gray-900"> <a href="index.html">TECHIFY</a> </div>
             <nav class="hidden md:flex flex-wrap space-x-6">
                 <ul id="navbar-items" class="flex flex-wrap space-x-6">
                     <!-- Add more options as needed -->
@@ -48,11 +48,6 @@
                     </svg>
                 </button>
             </div>
-            <!-- Search bar for desktop -->
-            <div class="hidden md:flex space-x-4">
-                <input type="text" id="searchInputDesktop" placeholder="Search Courses" class="border rounded px-4 py-2">
-                <button onclick="searchCourses()" class="bg-blue-600 text-white px-4 py-2 rounded">Search</button>
-            </div>
         </div>
         <!-- Mobile navigation menu -->
         <div id="mobile-menu" class="md:hidden hidden bg-white">
@@ -61,11 +56,6 @@
                 <li><a href="#" class="text-gray-800 block px-4 py-2">Live Chat</a></li>
                 <li><a href="#" class="text-gray-800 block px-4 py-2">Announcement</a></li>
             </ul>
-            <!-- Search bar for mobile -->
-            <div class="flex md:hidden mobile-search space-x-4 mt-4 px-4">
-                <input type="text" id="searchInputMobile" placeholder="Search Courses" class="border rounded px-4 py-2 flex-1">
-                <button onclick="searchCourses()" class="bg-blue-600 text-white px-4 py-2 rounded">Search</button>
-            </div>
         </div>
     </header>
 
@@ -74,9 +64,6 @@
         <h2 class="text-2xl font-bold text-gray-800 mb-6">Crypto Signals</h2>
         <div id="signals-container" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             <!-- Crypto signals will be dynamically added here -->
-
-
-
             <div class="bg-white shadow rounded-lg overflow-hidden">
                 <div class="p-4 bg-gray-200 flex justify-between items-center">
                     <span class="text-gray-600 text-sm">27 July</span>
@@ -85,8 +72,6 @@
                 </div>
                 <img src="TECHIFY SIGNALS 1 .png" alt="Crypto Signal" class="w-full">
             </div>
-
-
             <div class="bg-white shadow rounded-lg overflow-hidden">
                 <div class="p-4 bg-gray-200 flex justify-between items-center">
                     <span class="text-gray-600 text-sm">26 July</span>
@@ -95,23 +80,18 @@
                 </div>
                 <img src="TECHIFY SIGNALS 1  (1).png" alt="Crypto Signal" class="w-full">
             </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
         </div>
     </section>
 
-    <!-- JavaScript for hamburger menu, search functionality, and crypto signals -->
+    <!-- Disclaimer -->
+    <section class="container mx-auto px-6 py-4">
+        <div class="bg-yellow-100 border-l-4 border-yellow-500 text-yellow-700 p-4" role="alert">
+            <p class="font-bold">Disclaimer</p>
+            <p>Live chat will be open soon.</p>
+        </div>
+    </section>
+
+    <!-- JavaScript for hamburger menu and crypto signals -->
     <script>
         // Toggle mobile menu
         document.getElementById('hamburger').addEventListener('click', function() {
@@ -132,46 +112,9 @@
                     window.scrollTo({ top: 0, behavior: 'smooth' });
                     // Close mobile menu if open
                     document.getElementById('mobile-menu').classList.add('hidden');
-                    // Show courses list and hide search results
-                    document.getElementById('courseList').classList.remove('hidden');
-                    document.getElementById('courses').classList.remove('hidden');
-                    document.getElementById('searchResults').classList.add('hidden');
                 });
             });
         });
-
-        // Search functionality
-        function searchCourses() {
-            var searchInputDesktop = document.getElementById('searchInputDesktop');
-            var searchInputMobile = document.getElementById('searchInputMobile');
-            var query = searchInputDesktop ? searchInputDesktop.value : searchInputMobile.value;
-            var searchResults = document.getElementById('searchResults');
-            var courses = document.querySelectorAll('[data-title]');
-
-            if (query.trim() === "") {
-                searchResults.innerHTML = "";
-                return;
-            }
-
-            var filteredCourses = Array.from(courses).filter(function(course) {
-                return course.dataset.title.toLowerCase().includes(query.toLowerCase());
-            });
-
-            var resultsHTML = "<h3 class='text-lg font-bold text-gray-800'>Search Related Courses</h3>";
-            filteredCourses.forEach(function(course) {
-                resultsHTML += "<div class='mt-4 p-4 bg-white shadow rounded-lg'>" +
-                                "<h4 class='text-lg font-semibold text-gray-900'>" + course.dataset.title + "</h4>" +
-                                "<a href='" + course.dataset.link + "' class='text-blue-600'>Start Learning</a>" +
-                               "</div>";
-            });
-
-            searchResults.innerHTML = resultsHTML;
-            // Show search results and hide courses list
-            document.getElementById('courseList').classList.add('hidden');
-            document.getElementById('courses').classList.add('hidden');
-            searchResults.classList.remove('hidden');
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
 
         // Function to handle resizing of the navbar based on window size
         function handleResize() {
