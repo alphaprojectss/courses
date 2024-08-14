@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Techify Business</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 text-gray-900">
+
+    <!-- Navigation Bar -->
+    <header class="bg-black text-white p-4 flex justify-between items-center">
+        <div class="flex items-center space-x-4">
+            <img src="https://edition.cnn.com/favicon.ico" alt="CNN Logo" class="h-6">
+            <span class="text-lg font-semibold">Techify Business</span>
+        </div>
+        <nav class="space-x-4">
+            <a href="#" class="hover:underline">Markets</a>
+            <a href="#" class="hover:underline">Tech</a>
+            <a href="#" class="hover:underline">Media</a>
+            <a href="#" class="hover:underline">Calculators</a>
+            <a href="#" class="hover:underline">Videos</a>
+        </nav>
+    </header>
+
+    <!-- Stock Movers and Indices -->
+    <section class="bg-white p-6">
+        <div class="flex justify-around text-center text-lg font-semibold mb-8">
+            <div>
+                <p>Dow Index</p>
+                <p id="dow" class="text-green-500">Loading...</p>
+                <p id="dow-change" class="text-green-500">Loading...</p>
+            </div>
+            <div>
+                <p>S&P 500 Index</p>
+                <p id="sp500" class="text-green-500">Loading...</p>
+                <p id="sp500-change" class="text-green-500">Loading...</p>
+            </div>
+            <div>
+                <p>NASDAQ Index</p>
+                <p id="nasdaq" class="text-green-500">Loading...</p>
+                <p id="nasdaq-change" class="text-green-500">Loading...</p>
+            </div>
+        </div>
+
+        <!-- Stock List -->
+        <div>
+            <h2 class="text-xl font-bold mb-4">Today's hot stocks</h2>
+            <table class="min-w-full bg-white" id="stockTable">
+                <thead class="bg-gray-100">
+                    <tr>
+                        <th class="py-2 px-4">Symbol</th>
+                        <th class="py-2 px-4">Price</th>
+                        <th class="py-2 px-4">Change</th>
+                        <th class="py-2 px-4">% Change</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Data will be inserted here by JavaScript -->
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-black text-white text-center p-4 mt-8">
+        <p>&copy; 2024 Techify. A Alfa Team. Discovery Company. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        const apiKey = 'YOUR_ALPHA_VANTAGE_API_KEY'; // Replace with your Alpha Vantage API key
+
+        async function fetchMarketIndexData(symbol) {
+            const url = `https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=${symbol}&apikey=${apiKey}`;
+            const response = await fetch(url);
+            const data = await response.json();
+            return data['Global Quote'];
+        }
+
+        async function updateMarketIndices() {
+            const dow = await fetchMarketIndexData('DJIA');
+            const sp500 = await fetchMarketIndexData('SPX');
+            const nasdaq = await fetchMarketIndexData('IXIC');
+
+            document.getElementById('dow').textContent = `$${parseFloat(dow['05. price']).toFixed(2)}`;
+            document.getElementById('dow-change').textContent = `${parseFloat(dow['09. change']).toFixed(2)} (${parseFloat(dow['10. change percent']).toFixed(2)}%)`;
+
+            document.getElementById('sp500').textContent = `$${parseFloat(sp500['05. price']).toFixed(2)}`;
+            document.getElementById('sp500-change').textContent = `${parseFloat(sp500['09. change']).toFixed(2)} (${parseFloat(sp500['10. change percent']).toFixed(2)}%)`;
+
+            document.getElementById('nasdaq').textContent = `$${parseFloat(nasdaq['05. price']).toFixed(2)}`;
+            document.getElementById('nasdaq-change').textContent = `${parseFloat(nasdaq['09. change']).toFixed(2)} (${parseFloat(nasdaq['10. change percent']).toFixed(2)}%)`;
+        }
+
+        async function updateStockTable() {
+            const stocks = ['NVDA', 'SBUX', 'CMG', 'INTC', 'TSLA']; // List of stock symbols
+            const tbody = document.querySelector('#stockTable tbody');
+            tbody.innerHTML = '';
+
+            for (const symbol of stocks) {
+                const stockData = await fetchMarketIndexData(symbol);
+
+                const row = document.createElement('tr');
+                row.className = 'text-center';
+
+                row.innerHTML = `
+                    <td class="py-2 px-4 text-blue-600">${stockData['01. symbol']}</td>
+                    <td class="py-2 px-4">$${parseFloat(stockData['05. price']).toFixed(2)}</td>
+                    <td class="py-2 px-4">${parseFloat(stockData['09. change']).toFixed(2)}</td>
+                    <td class="py-2 px-4">${parseFloat(stockData['10. change percent']).toFixed(2)}%</td>
+                `;
+
+                tbody.appendChild(row);
+            }
+        }
+
+        // Update the table and indices every minute
+        async function updateData() {
+            await updateMarketIndices();
+            await updateStockTable();
+        }
+
+        updateData();
+        setInterval(updateData, 60000); // 60000 ms = 1 minute
+    </script>
+</body>
+</html>
