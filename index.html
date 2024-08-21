@@ -121,6 +121,23 @@
     <!-- Main Content -->
     <main class="container mx-auto px-6 py-8">
 
+        <!-- MAINTANCE ALERT MESSAGE -->
+
+
+        <div id="updateAlert" class="bg-yellow-200 border-l-4 border-yellow-500 text-yellow-700 p-4 fixed bottom-0 left-0 w-full z-50 flex items-center justify-between shadow-lg">
+            <div class="flex items-center">
+                <svg class="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M12 19a7 7 0 100-14 7 7 0 000 14z"></path></svg>
+                <span>Website updating work in progress. Let us know if you face any errors, crashes, or false links.</span>
+            </div>
+            <button onclick="document.getElementById('updateAlert').style.display='none'" class="bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-2 px-4 rounded ml-4">
+                OK
+            </button>
+        </div>
+        
+
+
+
+
         <!-- Search Results Section -->
         <div id="searchResults" class="mt-8 hidden"></div>
 
