@@ -8,33 +8,149 @@
 </head>
 <body class="bg-gray-100 flex items-center justify-center h-screen">
     <div id="container" class="w-full max-w-sm p-8 bg-white rounded shadow-lg">
-        <h1 class="text-2xl font-semibold text-center mb-6">Enter the Key</h1>
+        <h1 class="text-2xl font-semibold text-center mb-6">Choose a Service</h1>
+        <div class="flex flex-wrap justify-between mb-6">
+            <button 
+                onclick="selectService('netflix')" 
+                class="w-full p-3 mb-2 bg-red-600 text-white font-semibold rounded hover:bg-red-700 transition">
+                Netflix
+            </button>
+            <button 
+                onclick="selectService('prime')" 
+                class="w-full p-3 mb-2 bg-blue-600 text-white font-semibold rounded hover:bg-blue-700 transition">
+                Amazon Prime Video
+            </button>
+            <button 
+                onclick="selectService('disney')" 
+                class="w-full p-3 mb-2 bg-blue-500 text-white font-semibold rounded hover:bg-blue-600 transition">
+                Disney Plus
+            </button>
+            <button 
+                onclick="selectService('hulu')" 
+                class="w-full p-3 mb-2 bg-green-600 text-white font-semibold rounded hover:bg-green-700 transition">
+                Hulu
+            </button>
+            <button 
+                onclick="selectService('paramount')" 
+                class="w-full p-3 mb-2 bg-indigo-600 text-white font-semibold rounded hover:bg-indigo-700 transition">
+                Paramount+
+            </button>
+            <button 
+                onclick="selectService('max')" 
+                class="w-full p-3 mb-2 bg-gray-800 text-white font-semibold rounded hover:bg-gray-900 transition">
+                Max
+            </button>
+            <button 
+                onclick="selectService('peacock')" 
+                class="w-full p-3 mb-2 bg-yellow-500 text-white font-semibold rounded hover:bg-yellow-600 transition">
+                Peacock
+            </button>
+            <button 
+                onclick="selectService('espn')" 
+                class="w-full p-3 mb-2 bg-red-500 text-white font-semibold rounded hover:bg-red-600 transition">
+                ESPN+
+            </button>
+            <button 
+                onclick="selectService('fubo')" 
+                class="w-full p-3 mb-2 bg-orange-600 text-white font-semibold rounded hover:bg-orange-700 transition">
+                Fubo
+            </button>
+        </div>
         <input 
             type="text" 
             id="keyInput" 
-            class="w-full p-3 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-indigo-600" 
+            class="w-full p-3 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-indigo-600 hidden" 
             placeholder="Enter Key"
         >
         <button 
             onclick="checkKey()" 
-            class="w-full mt-4 p-3 bg-indigo-600 text-white font-semibold rounded hover:bg-indigo-700 transition">
+            id="submitButton"
+            class="w-full mt-4 p-3 bg-indigo-600 text-white font-semibold rounded hover:bg-indigo-700 transition hidden">
             Submit
         </button>
         <div id="result" class="mt-6 text-center hidden">
-            <h2 class="text-2xl font-bold text-gray-800">Netflix Credentials</h2>
-            <p class="text-sm text-gray-600">ID: iamdoremon777@gmail.com</p>
-            <p class="text-sm text-gray-600">Password: Sahihai#</p>
-            <p class="text-sm text-gray-600">Screen: 1</p>
-            <p class="text-sm text-gray-600">Screen Password: 6669</p>
+            <h2 id="serviceTitle" class="text-2xl font-bold text-gray-800"></h2>
+            <p id="accountId" class="text-sm text-gray-600"></p>
+            <p id="accountPassword" class="text-sm text-gray-600"></p>
+            <p id="screenInfo" class="text-sm text-gray-600"></p>
+            <p id="screenPassword" class="text-sm text-gray-600"></p>
         </div>
     </div>
 
     <script>
+        let selectedService = '';
+
+        function selectService(service) {
+            selectedService = service;
+            document.getElementById('keyInput').classList.remove('hidden');
+            document.getElementById('submitButton').classList.remove('hidden');
+        }
+
         function checkKey() {
             const keyInput = document.getElementById('keyInput').value;
             const result = document.getElementById('result');
+            const serviceTitle = document.getElementById('serviceTitle');
+            const accountId = document.getElementById('accountId');
+            const accountPassword = document.getElementById('accountPassword');
+            const screenInfo = document.getElementById('screenInfo');
+            const screenPassword = document.getElementById('screenPassword');
 
             if (keyInput === 'techify96.net') {
+                if (selectedService === 'netflix') {
+                    serviceTitle.textContent = 'Netflix Credentials';
+                    accountId.textContent = 'ID: iamdoremon777@gmail.com';
+                    accountPassword.textContent = 'Password: Sahihai#';
+                    screenInfo.textContent = 'Screen: 1';
+                    screenPassword.textContent = 'Screen Password: 6669';
+                } else if (selectedService === 'prime') {
+                    serviceTitle.textContent = 'Amazon Prime Video Credentials';
+                    accountId.textContent = 'ID: primeuser@example.com';
+                    accountPassword.textContent = 'Password: Prime2024#';
+                    screenInfo.textContent = 'Screen: 1';
+                    screenPassword.textContent = 'Screen Password: 1234';
+                } else if (selectedService === 'disney') {
+                    serviceTitle.textContent = 'Disney Plus Credentials';
+                    accountId.textContent = 'ID: disneyuser@example.com';
+                    accountPassword.textContent = 'Password: DisneyPlus2024#';
+                    screenInfo.textContent = '';
+                    screenPassword.textContent = '';
+                } else if (selectedService === 'hulu') {
+                    serviceTitle.textContent = 'Hulu Credentials';
+                    accountId.textContent = 'ID: huluuser@example.com';
+                    accountPassword.textContent = 'Password: Hulu123#';
+                    screenInfo.textContent = '';
+                    screenPassword.textContent = '';
+                } else if (selectedService === 'paramount') {
+                    serviceTitle.textContent = 'Paramount+ Credentials';
+                    accountId.textContent = 'ID: paramountuser@example.com';
+                    accountPassword.textContent = 'Password: Paramount+2024#';
+                    screenInfo.textContent = '';
+                    screenPassword.textContent = '';
+                } else if (selectedService === 'max') {
+                    serviceTitle.textContent = 'Max Credentials';
+                    accountId.textContent = 'ID: maxuser@example.com';
+                    accountPassword.textContent = 'Password: Max2024#';
+                    screenInfo.textContent = '';
+                    screenPassword.textContent = '';
+                } else if (selectedService === 'peacock') {
+                    serviceTitle.textContent = 'Peacock Credentials';
+                    accountId.textContent = 'ID: peacockuser@example.com';
+                    accountPassword.textContent = 'Password: Peacock2024#';
+                    screenInfo.textContent = '';
+                    screenPassword.textContent = '';
+                } else if (selectedService === 'espn') {
+                    serviceTitle.textContent = 'ESPN+ Credentials';
+                    accountId.textContent = 'ID: espnuser@example.com';
+                    accountPassword.textContent = 'Password: ESPN+2024#';
+                    screenInfo.textContent = '';
+                    screenPassword.textContent = '';
+                } else if (selectedService === 'fubo') {
+                    serviceTitle.textContent = 'Fubo Credentials';
+                    accountId.textContent = 'ID: fubouser@example.com';
+                    accountPassword.textContent = 'Password: Fubo2024#';
+                    screenInfo.textContent = '';
+                    screenPassword.textContent = '';
+                }
                 result.classList.remove('hidden');
             } else {
                 alert('Incorrect Key');
