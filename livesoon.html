@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Techify - Live Soon</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    /* Custom Styles */
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #0D1117;
+      color: #F0F6FC;
+    }
+    .text-gradient {
+      background: linear-gradient(90deg, #63B3ED, #68D391);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .countdown {
+      font-size: 2.5rem;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <!-- Hero Section -->
+  <section class="h-screen flex flex-col items-center justify-center text-center bg-gray-900">
+    <h1 class="text-6xl font-extrabold mb-4 text-gradient">Techify Live Soon</h1>
+    <p class="text-2xl mb-8">We're launching on October 17th, 2024. Stay tuned!</p>
+
+    <!-- Countdown Timer -->
+    <div class="countdown" id="countdown"></div>
+
+    <!-- Inline Script to Handle Countdown -->
+    <script>
+      // Set the target date for the countdown
+      var countDownDate = new Date("Oct 17, 2024 00:00:00").getTime();
+
+      // Update the countdown every 1 second
+      var countdownFunction = setInterval(function() {
+        // Get current time
+        var now = new Date().getTime();
+
+        // Calculate the distance between now and the countdown date
+        var distance = countDownDate - now;
+
+        // Time calculations for days, hours, minutes, and seconds
+        var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        // Display the result in the element with id="countdown"
+        document.getElementById("countdown").innerHTML = days + "d " + hours + "h "
+        + minutes + "m " + seconds + "s ";
+
+        // If the countdown is over, display a different message
+        if (distance < 0) {
+          clearInterval(countdownFunction);
+          document.getElementById("countdown").innerHTML = "We Are Live!";
+        }
+      }, 1000);
+    </script>
+  </section>
+</body>
+</html>
