@@ -1,67 +1,177 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Techify - Live Soon</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Manzi Learning Hub</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
     /* Custom Styles */
     body {
       font-family: 'Poppins', sans-serif;
-      background-color: #0D1117;
-      color: #F0F6FC;
+      background-color: #1A202C; /* Dark Background */
+      color: #E2E8F0; /* Light text for contrast */
+    }
+    .gradient-bg {
+      background: linear-gradient(135deg, #2D3748 0%, #4A5568 100%);
+    }
+    .btn-gradient {
+      background: linear-gradient(135deg, #38B2AC 0%, #68D391 100%);
     }
     .text-gradient {
-      background: linear-gradient(90deg, #63B3ED, #68D391);
+      background: linear-gradient(90deg, #63B3ED, #4299E1);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
-    .countdown {
-      font-size: 2.5rem;
-      font-weight: bold;
+    .card-bg {
+      background-color: #2D3748; /* Dark card backgrounds */
+      border: 1px solid #4A5568; /* Subtle border for depth */
+    }
+    .hover-effect:hover {
+      transform: scale(1.05);
     }
   </style>
 </head>
 <body>
+  <!-- Navbar -->
+  <header class="gradient-bg p-4 shadow-md">
+    <div class="container mx-auto flex justify-between items-center">
+      <div class="text-white font-bold text-3xl tracking-wider">TECHIFY</div>
+      <nav class="space-x-6 hidden md:flex">
+        <a href="#courses" class="text-white hover:text-teal-400 transition-colors">Courses</a>
+        <a href="#feedback" class="text-white hover:text-teal-400 transition-colors">Feedback</a>
+        <a href="#contact" class="text-white hover:text-teal-400 transition-colors">Contact Us</a>
+      </nav>
+      <button class="btn-gradient text-white px-5 py-2 rounded-lg hover:opacity-90 transition-opacity">Get A Quote</button>
+    </div>
+  </header>
+
   <!-- Hero Section -->
-  <section class="h-screen flex flex-col items-center justify-center text-center bg-gray-900">
-    <h1 class="text-6xl font-extrabold mb-4 text-gradient">Techify Live Soon</h1>
-    <p class="text-2xl mb-8">We're launching on October 17th, 2024. Stay tuned!</p>
-
-    <!-- Countdown Timer -->
-    <div class="countdown" id="countdown"></div>
-
-    <!-- Inline Script to Handle Countdown -->
-    <script>
-      // Set the target date for the countdown
-      var countDownDate = new Date("Oct 17, 2024 00:00:00").getTime();
-
-      // Update the countdown every 1 second
-      var countdownFunction = setInterval(function() {
-        // Get current time
-        var now = new Date().getTime();
-
-        // Calculate the distance between now and the countdown date
-        var distance = countDownDate - now;
-
-        // Time calculations for days, hours, minutes, and seconds
-        var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-        var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-        var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-        // Display the result in the element with id="countdown"
-        document.getElementById("countdown").innerHTML = days + "d " + hours + "h "
-        + minutes + "m " + seconds + "s ";
-
-        // If the countdown is over, display a different message
-        if (distance < 0) {
-          clearInterval(countdownFunction);
-          document.getElementById("countdown").innerHTML = "We Are Live!";
-        }
-      }, 1000);
-    </script>
+  <section class="h-screen relative text-white flex items-center justify-center bg-no-repeat bg-cover" style="background-image: url('techify\ website\ bg.png');">
+    <div class="absolute inset-0 bg-gradient-to-r from-gray-800 via-gray-700 to-gray-600 opacity-80"></div>
+    <div class="z-10 text-center max-w-2xl">
+      <h1 class="text-5xl font-extrabold leading-tight mb-8 text-gradient">Empower Your Future with Techify</h1>
+      <p class="text-lg mb-6">Unlock your potential with top-notch educational resources designed to help you thrive in a dynamic world.</p>
+      <div class="space-x-4">
+        <button class="btn-gradient px-6 py-3 rounded-lg text-lg font-semibold hover:opacity-90 transition-opacity">Our Courses</button>
+        <button class="bg-transparent border-2 border-teal-500 px-6 py-3 rounded-lg text-lg font-semibold hover:bg-teal-500 transition-colors">Contact Now</button>
+      </div>
+    </div>
   </section>
+
+  <!-- Why Choose Section -->
+  <section class="py-16 bg-gray-900">
+    <div class="container mx-auto">
+      <h2 class="text-4xl font-extrabold text-center text-gradient mb-12">Why Choose Techify for Your Career?</h2>
+      <div class="flex flex-wrap md:flex-nowrap space-y-8 md:space-y-0">
+        <div class="w-full md:w-1/2 flex justify-center">
+          <img src="techify website backend.png" alt="Learning" class="rounded-lg shadow-lg transform transition hover:scale-105 hover-effect" />
+        </div>
+        <div class="w-full md:w-1/2 px-4 flex flex-col justify-center">
+          <p class="text-lg mb-8 text-gray-400">Choose Techify Learning Hub for your career. With 7 years of expertise, we offer unparalleled opportunities for growth, learning, and innovation. Join us to take the next step in your journey.</p>
+          <div>
+            <div class="mb-6">
+              <div class="flex justify-between items-center text-lg font-semibold">
+                <span>Entrepreneur</span>
+                <span>98%</span>
+              </div>
+              <div class="bg-gray-700 rounded-full h-4 mt-2">
+                <div class="bg-teal-500 h-full rounded-full" style="width: 98%;"></div>
+              </div>
+            </div>
+            
+            
+
+            <div>
+              <div class="flex justify-between items-center text-lg font-semibold">
+                <span>Researcher</span>
+                <span>95%</span>
+              </div>
+              <div class="bg-gray-700 rounded-full h-4 mt-2">
+                <div class="bg-teal-500 h-full rounded-full" style="width: 95%;"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonial Section -->
+  <section class="py-16 bg-gray-800" id="testimonials">
+    <div class="container mx-auto">
+      <h2 class="text-4xl font-extrabold text-center text-gradient mb-12">What Our Students Say</h2>
+      <div class="flex flex-wrap -mx-4 space-y-8 lg:space-y-0 lg:space-x-8">
+        <!-- Testimonial 1 -->
+        <div class="w-full lg:w-1/3 px-4">
+          <div class="card-bg p-8 rounded-lg shadow-lg hover-effect">
+            <p class="text-lg mb-6">"Techify Learning Hub provided the guidance and resources I needed to excel in my career. Their approach to education is unparalleled."</p>
+            <div class="flex items-center space-x-4">
+              <img src="https://via.placeholder.com/50" alt="Student 1" class="rounded-full w-12 h-12" />
+              <div>
+                <h4 class="font-semibold text-teal-400">Abdull Qadir</h4>
+                <p class="text-sm text-gray-400">Web Developer</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Testimonial 2 -->
+        <div class="w-full lg:w-1/3 px-4">
+          <div class="card-bg p-8 rounded-lg shadow-lg hover-effect">
+            <p class="text-lg mb-6">"The instructors at Techify Learning Hub are experts in their fields and genuinely care about our success. I couldn't have asked for a better learning experience."</p>
+            <div class="flex items-center space-x-4">
+              <img src="https://via.placeholder.com/50" alt="Student 2" class="rounded-full w-12 h-12" />
+              <div>
+                <h4 class="font-semibold text-teal-400">Farooq Khan</h4>
+                <p class="text-sm text-gray-400">Researcher</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Testimonial 3 -->
+        <div class="w-full lg:w-1/3 px-4">
+          <div class="card-bg p-8 rounded-lg shadow-lg hover-effect">
+            <p class="text-lg mb-6">"Thanks to Techify Learning Hub, I was able to transition into a completely new career path. Their courses are practical and easy to follow."</p>
+            <div class="flex items-center space-x-4">
+              <img src="https://via.placeholder.com/50" alt="Student 3" class="rounded-full w-12 h-12" />
+              <div>
+                <h4 class="font-semibold text-teal-400">Shah Nawaz</h4>
+                <p class="text-sm text-gray-400">Software Developer</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Video Section
+  <section class="py-16 bg-gray-800">
+    <div class="container mx-auto text-center">
+      <h2 class="text-4xl font-extrabold text-gradient mb-8">Explore Our Video</h2>
+      <div class="aspect-w-16 aspect-h-9 rounded-lg overflow-hidden shadow-lg">
+        <iframe class="w-full h-full" src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen></iframe>
+      </div>
+    </div>
+  </section> -->
+
+  <!-- Footer -->
+  <footer class="gradient-bg py-8">
+    <div class="container mx-auto text-center">
+      <p>&copy; 2024 Techify Learning Hub. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Inline JavaScript for responsiveness -->
+  <script>
+    window.addEventListener('resize', function() {
+      const hero = document.querySelector('.hero');
+      if (window.innerWidth < 768) {
+        hero.classList.add('bg-cover');
+      } else {
+        hero.classList.remove('bg-cover');
+      }
+    });
+  </script>
 </body>
 </html>
